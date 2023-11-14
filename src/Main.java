@@ -33,166 +33,182 @@ public class Main {
 
         long startTime;
         long endTime;
+try {
+    System.out.print("AVLInsert=[");
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9000) {
+                float sum=0;
+                for (int k = 0; k < 1000; k++) {
 
-        System.out.print("AVLInsert=[");
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    startTime = System.nanoTime();
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
-                } else {
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
+
+                startTime = System.nanoTime();
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
+                endTime = System.nanoTime();
+                sum+=(endTime - startTime)/1000.0;
                 }
-
+                System.out.print((int)sum + ",");
+                i+=1000;
+            } else {
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
             }
-        }
 
-        System.out.println("];");
-        System.out.print("AVLDel=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    int FindNode=avlTree.getRandNode(avlTree.getRoot()).getInf();
+        }
+    }
+
+    System.out.println("];");
+    System.out.print("AVLDel=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                float sum=0;
+                for (int k = 0; k < 1000; k++) {
+                    int FindNode = avlTree.getRandNode(avlTree.getRoot()).getInf();
+
                     startTime = System.nanoTime();
                     avlTree.remove(avlTree.getRoot(), FindNode);
                     endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
-                } else {
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
+                    sum+=(endTime - startTime)/1000.0;
+                    redBlackTree.add(FindNode);
                 }
+                System.out.print((int)sum + ",");
 
+            } else {
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
             }
-        }
-        System.out.println("];");
-        System.out.print("AVLMaxDeep=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    System.out.print(avlTree.getDeep(avlTree.getRoot()) + ",");
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
-                } else {
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
-                }
 
+        }
+    }
+    System.out.println("];");
+    System.out.print("AVLMaxDeep=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                System.out.print(avlTree.getDeep(avlTree.getRoot()) + ",");
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
+            } else {
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
             }
-        }
-        System.out.println("];");
-        System.out.print("AVLminDeep=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    System.out.print(avlTree.getMinDeep(avlTree.getRoot()) + ",");
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
-                } else {
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
-                }
 
+        }
+    }
+    System.out.println("];");
+    System.out.print("AVLminDeep=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                System.out.print(avlTree.getMinDeep(avlTree.getRoot()) + ",");
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
+            } else {
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
             }
-        }
-        System.out.println("];");
-        System.out.print("AVLFind=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    int FindNode=avlTree.getRandNode(avlTree.getRoot()).getInf();
-                    startTime = System.nanoTime();
-                    avlTree.find(avlTree.getRoot(),FindNode );
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
-                } else {
-                    avlTree.insert(avlTree.getRoot(), numbers[i + j]);
-                }
 
+        }
+    }
+    System.out.println("];");
+    System.out.print("AVLFind=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                int FindNode = avlTree.getRandNode(avlTree.getRoot()).getInf();
+                startTime = System.nanoTime();
+                avlTree.find(avlTree.getRoot(), FindNode);
+                endTime = System.nanoTime();
+                System.out.print(endTime - startTime + ",");
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
+            } else {
+                avlTree.insert(avlTree.getRoot(), numbers[i + j]);
             }
-        }
-        System.out.println("];");
-        System.out.print("AVLInsertSortMass=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    startTime = System.nanoTime();
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
-                } else {
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                }
 
+        }
+    }
+    System.out.println("];");
+    System.out.print("AVLInsertSortMass=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                startTime = System.nanoTime();
+                avlTree.insert(avlTree.getRoot(), i + j);
+                endTime = System.nanoTime();
+                System.out.print(endTime - startTime + ",");
+            } else {
+                avlTree.insert(avlTree.getRoot(), i + j);
             }
+
         }
+    }
 
-        System.out.println("];");
-        System.out.print("AVLDelSortMass=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    int FindNode=avlTree.getMax(avlTree.getRoot()).getInf();
-                    startTime = System.nanoTime();
-                    avlTree.remove(avlTree.getRoot(),FindNode );
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
-                } else {
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                }
-
+    System.out.println("];");
+    System.out.print("AVLDelSortMass=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                int FindNode = avlTree.getMax(avlTree.getRoot()).getInf();
+                startTime = System.nanoTime();
+                avlTree.remove(avlTree.getRoot(), FindNode);
+                endTime = System.nanoTime();
+                System.out.print(endTime - startTime + ",");
+            } else {
+                avlTree.insert(avlTree.getRoot(), i + j);
             }
-        }
-        System.out.println("];");
-        System.out.print("AVLMaxDeepSortMass=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    System.out.print(avlTree.getDeep(avlTree.getRoot()) + ",");
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                } else {
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                }
 
+        }
+    }
+    System.out.println("];");
+    System.out.print("AVLMaxDeepSortMass=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                System.out.print(avlTree.getDeep(avlTree.getRoot()) + ",");
+                avlTree.insert(avlTree.getRoot(), i + j);
+            } else {
+                avlTree.insert(avlTree.getRoot(), i + j);
             }
-        }
-        System.out.println("];");
-        System.out.print("AVLMinDeepSortMass=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    System.out.print(avlTree.getMinDeep(avlTree.getRoot()) + ",");
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                } else {
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                }
 
+        }
+    }
+    System.out.println("];");
+    System.out.print("AVLMinDeepSortMass=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                System.out.print(avlTree.getMinDeep(avlTree.getRoot()) + ",");
+                avlTree.insert(avlTree.getRoot(), i + j);
+            } else {
+                avlTree.insert(avlTree.getRoot(), i + j);
             }
-        }
-        System.out.println("];");
-        System.out.print("AVLFindSortMass=[");
-        avlTree = new AVLTree();
-        for (int j = 0; j < max - 1; j += step) {
-            for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    int FindNode=avlTree.getMax(avlTree.getRoot()).getInf();
-                    startTime = System.nanoTime();
-                    avlTree.find(avlTree.getRoot(),FindNode );
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                } else {
-                    avlTree.insert(avlTree.getRoot(), i + j);
-                }
 
+        }
+    }
+    System.out.println("];");
+    System.out.print("AVLFindSortMass=[");
+    avlTree = new AVLTree();
+    for (int j = 0; j < max - 1; j += step) {
+        for (int i = 0; i < step; i++) {
+            if (i == 9999) {
+                int FindNode = avlTree.getMax(avlTree.getRoot()).getInf();
+                startTime = System.nanoTime();
+                avlTree.find(avlTree.getRoot(), FindNode);
+                endTime = System.nanoTime();
+                System.out.print(endTime - startTime + ",");
+                avlTree.insert(avlTree.getRoot(), i + j);
+            } else {
+                avlTree.insert(avlTree.getRoot(), i + j);
             }
-        }
 
+        }
+    }
+}catch (Exception e){
+    System.out.println("авл дерево переполнило стэк");
+}
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -201,11 +217,19 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    startTime = System.nanoTime();
-                    binareTree.add(numbers[i + j]);
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
+                if (i == 9000) {
+
+                    float sum=0;
+                    for (int k = 0; k < 1000; k++) {
+
+
+                        startTime = System.nanoTime();
+                        binareTree.add(numbers[i + j]);
+                        endTime = System.nanoTime();
+                        sum+=(endTime - startTime)/1000.0;
+                    }
+                    System.out.print((int)sum + ",");
+                    i+=1000;
                 } else {
                     binareTree.add(numbers[i + j]);
                 }
@@ -218,12 +242,20 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    NodeBinarTree FindNode=binareTree.getRandNode(binareTree.getRoot());
-                    startTime = System.nanoTime();
-                    binareTree.delete( FindNode);
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
+                if (i == 9999) {
+                     float sum=0;
+                    for (int k = 0; k < 1000; k++) {
+                        NodeBinarTree FindNode=binareTree.getRandNode(binareTree.getRoot());
+int inf= FindNode.getInf();
+
+                        startTime = System.nanoTime();
+                        binareTree.delete( FindNode);
+                        endTime = System.nanoTime();
+                        sum+=(endTime - startTime)/1000.0;
+
+                        redBlackTree.add(inf);
+                    }
+                    System.out.print((int)sum + ",");
                 } else {
                     binareTree.add(numbers[i + j]);
                 }
@@ -235,7 +267,7 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     System.out.print(binareTree.getDeep(binareTree.getRoot()) + ",");
                     binareTree.add(numbers[i + j]);
                 } else {
@@ -249,7 +281,7 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     System.out.print(binareTree.getMinDeep(binareTree.getRoot()) + ",");
                     binareTree.add(numbers[i + j]);
                 } else {
@@ -263,7 +295,7 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     int FindNode=binareTree.getRandNode(binareTree.getRoot()).getInf();
                     startTime = System.nanoTime();
                     binareTree.find(binareTree.getRoot(),FindNode );
@@ -281,7 +313,7 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     startTime = System.nanoTime();
                     binareTree.add(i + j);
                     endTime = System.nanoTime();
@@ -298,7 +330,7 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     NodeBinarTree FindNode=binareTree.getRoot();
                     while (FindNode.getrChild()!=null){
                         FindNode=FindNode.getrChild();
@@ -315,14 +347,14 @@ public class Main {
         }
         System.out.println("];");
         System.out.print("BINAREMaxDeepSortMass=[");
-        for (int i = 0; i <100000; i+=10000) {
+        for (int i = 10000; i <=100000; i+=10000) {
             System.out.print(i + ",");
 
         }
 
         System.out.println("];");
         System.out.print("BINAREMinDeepSortMass=[");
-         for (int i = 0; i <100000; i+=10000) {
+         for (int i = 10000;i <=100000; i+=10000) {
             System.out.print(1 + ",");
 
         }
@@ -331,7 +363,7 @@ public class Main {
         binareTree = new BinareTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     int FindNode=binareTree.getMax(binareTree.getRoot()).getInf();
                     startTime = System.nanoTime();
                     binareTree.find(binareTree.getRoot(),FindNode );
@@ -353,11 +385,20 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    startTime = System.nanoTime();
-                    redBlackTree.add(numbers[i + j]);
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
+                if (i == 9000) {
+
+
+                    float sum=0;
+                    for (int k = 0; k < 1000; k++) {
+
+
+                        startTime = System.nanoTime();
+                        redBlackTree.add(numbers[i + j]);
+                        endTime = System.nanoTime();
+                        sum+=(endTime - startTime)/1000.0;
+                    }
+                    System.out.print((int)sum + ",");
+                    i+=1000;
                 } else {
                     redBlackTree.add(numbers[i + j]);
                 }
@@ -370,12 +411,28 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    NodeRedBlackTree FindNode=redBlackTree.getRandNode(redBlackTree.getRoot());
-                    startTime = System.nanoTime();
-                    redBlackTree.delete( FindNode);
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
+                if (i == 9999) {
+                     float sum=0;
+                    int k=0;
+                    try {
+
+
+                   for ( k = 0; k < 1000; k++) {
+                        NodeRedBlackTree FindNode=redBlackTree.getRandNode(redBlackTree.getRoot());
+                        int inf=FindNode.getInf();
+
+
+                        startTime = System.nanoTime();
+                        redBlackTree.delete(FindNode);
+                        endTime = System.nanoTime();
+                        sum+=(endTime - startTime)/1000.0;
+                        redBlackTree.add(inf);
+                    }
+                    }catch (Exception e){
+                        System.out.print((int)((sum/k)*1000) + ",,");
+                    }
+
+                    System.out.print((int)sum + ",");
                 } else {
                     redBlackTree.add(numbers[i + j]);
                 }
@@ -387,7 +444,7 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     System.out.print(redBlackTree.getDeep(redBlackTree.getRoot()) + ",");
                     redBlackTree.add(numbers[i + j]);
                 } else {
@@ -401,7 +458,7 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     System.out.print(redBlackTree.getMinDeep(redBlackTree.getRoot()) + ",");
                     redBlackTree.add(numbers[i + j]);
                 } else {
@@ -415,7 +472,7 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     int FindNode=redBlackTree.getRandNode(redBlackTree.getRoot()).getInf();
                     startTime = System.nanoTime();
                     redBlackTree.find(redBlackTree.getRoot(),FindNode );
@@ -433,7 +490,7 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     startTime = System.nanoTime();
                     redBlackTree.add(i + j);
                     endTime = System.nanoTime();
@@ -450,7 +507,7 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     NodeRedBlackTree FindNode=redBlackTree.getMax(redBlackTree.getRoot());
                     startTime = System.nanoTime();
                     redBlackTree.delete(FindNode );
@@ -467,7 +524,7 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     System.out.print(redBlackTree.getDeep(redBlackTree.getRoot()) + ",");
                     redBlackTree.add(i + j);
                 } else {
@@ -481,7 +538,7 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     System.out.print(redBlackTree.getMinDeep(redBlackTree.getRoot()) + ",");
                     redBlackTree.add(i + j);
                 } else {
@@ -495,12 +552,19 @@ public class Main {
         redBlackTree = new RedBlackTree();
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
-                    int FindNode=redBlackTree.getMax(redBlackTree.getRoot()).getInf();
-                    startTime = System.nanoTime();
-                    redBlackTree.find(redBlackTree.getRoot(),FindNode );
-                    endTime = System.nanoTime();
-                    System.out.print(endTime - startTime + ",");
+                if (i == 9999) {
+
+                    float sum=0;
+                    for (int k = 0; k <1000 ; k++) {
+                        int FindNode=redBlackTree.getMax(redBlackTree.getRoot()).getInf();
+
+                        startTime = System.nanoTime();
+                        redBlackTree.find(redBlackTree.getRoot(),FindNode );
+                        endTime = System.nanoTime();
+                        sum+=(endTime-startTime)/1000.0;
+                    }
+
+                    System.out.print((int)sum+ ",");
                     redBlackTree.add(i + j);
                 } else {
                     redBlackTree.add(i + j);
@@ -529,7 +593,7 @@ public class Main {
         System.out.println("binare add=[");
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     startTime = System.nanoTime();
                     binareTree.add( numbers[i + j]);
                     endTime = System.nanoTime();
@@ -544,7 +608,7 @@ public class Main {
         System.out.println("RedBlack add=[");
         for (int j = 0; j < max - 1; j += step) {
             for (int i = 0; i < step; i++) {
-                if (i == 10) {
+                if (i == 9999) {
                     startTime = System.nanoTime();
                     redBlackTree.add( numbers[i + j]);
                     endTime = System.nanoTime();
