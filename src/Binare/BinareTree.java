@@ -39,23 +39,15 @@ public class BinareTree {
             root = new NodeBinarTree(inf, null, null, null);
         }
     }
-    public boolean check(NodeBinarTree node) {
-        boolean answer=true;
-        if (node != null) {
-            answer&=check(node.getlChild());
-            answer&=node.check();
-            answer&=check(node.getrChild());
-        }
-        return answer;
-    }
-    void sayInorder(NodeBinarTree node) {
+
+    public void sayInorder(NodeBinarTree node) {
         if (node != null) {
             sayInorder(node.getlChild());
             System.out.print(node.getInf() + " ");
             sayInorder(node.getrChild());
         }
     }
-    void sayPreorder(NodeBinarTree node) {
+    public void sayPreorder(NodeBinarTree node) {
         if (node != null) {
             System.out.print(node.getInf() + " ");
             sayPreorder(node.getlChild());
@@ -114,12 +106,12 @@ public class BinareTree {
     }
     public NodeBinarTree getRandNode(NodeBinarTree node) {
         Random random = new Random();
-        int n = random.nextInt(10);
+        int n = random.nextInt(100);
         if (node != null) {
-            if (n > 5 && node.getrChild() != null) {
-                return node.getrChild();
+            if (n > 50 && node.getrChild() != null) {
+                return getRandNode( node.getrChild());
             } else if (n > 0 && node.getlChild() != null) {
-                return node.getlChild();
+                return getRandNode(node.getlChild());
             } else {
                 return node;
             }
@@ -161,7 +153,15 @@ public class BinareTree {
             }
         }
     }
-
+    boolean check(NodeBinarTree node) {
+        boolean answer=true;
+        if (node != null) {
+            answer&=check(node.getlChild());
+            answer&=node.check();
+            answer&=check(node.getrChild());
+        }
+        return answer;
+    }
     public NodeBinarTree find(NodeBinarTree node, int inf) {
         NodeBinarTree findNode=node;
         while (findNode.getrChild()!=null&&inf>findNode.getInf()||findNode.getlChild()!=null&&inf<findNode.getInf()){

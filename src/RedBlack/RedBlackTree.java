@@ -1,5 +1,7 @@
 package RedBlack;
 
+import AVL.NodeAVLTree;
+
 import java.util.Random;
 
 public class RedBlackTree {
@@ -41,25 +43,9 @@ public class RedBlackTree {
 
     }
 
-    public boolean check(NodeRedBlackTree node) {
 
-        boolean answer = true;
-        if (node == root) {//проверить что все пути до листьев имеют одинаковую черную высоту
-            if (checBlackDeep(root) == -1) {
-                answer = false;
-            }
-        }
-        if (answer && node != null) {
-            answer &= check(node.getlChild());
-            answer &= node.check();
-            if (answer) {//если уже нарушили нет смысла проверять дальше
-                answer &= check(node.getrChild());
-            }
-        }
-        return answer;
-    }
 
-    void sayInorder(NodeRedBlackTree node) {
+    public void sayInorder(NodeRedBlackTree node) {
         if (node != null) {
             sayInorder(node.getlChild());
             System.out.print(node.getInf() + " ");
@@ -67,7 +53,7 @@ public class RedBlackTree {
         }
     }
 
-    void sayPreorder(NodeRedBlackTree node) {
+    public void sayPreorder(NodeRedBlackTree node) {
         if (node != null) {
             System.out.print(node.getInf() + " ");
             sayPreorder(node.getlChild());
@@ -75,7 +61,7 @@ public class RedBlackTree {
         }
     }
 
-    void sayPostorder(NodeRedBlackTree node) {
+    public void sayPostorder(NodeRedBlackTree node) {
         if (node != null) {
             sayPostorder(node.getlChild());
             sayPostorder(node.getrChild());
@@ -228,7 +214,23 @@ public class RedBlackTree {
             return newChild;//если удаляем черный узел будет нарушена черная длина
         }
     }
+    boolean check(NodeRedBlackTree node) {
 
+        boolean answer = true;
+        if (node == root) {//проверить что все пути до листьев имеют одинаковую черную высоту
+            if (checBlackDeep(root) == -1) {
+                answer = false;
+            }
+        }
+        if (answer && node != null) {
+            answer &= check(node.getlChild());
+            answer &= node.check();
+            if (answer) {//если уже нарушили нет смысла проверять дальше
+                answer &= check(node.getrChild());
+            }
+        }
+        return answer;
+    }
     void fixRedBlackPropertiesAfterDelete(NodeRedBlackTree node) {
 
         if (node == root) {//1случ
@@ -335,7 +337,6 @@ public class RedBlackTree {
         }
     }
 
-
     void checDoublRed(NodeRedBlackTree node, char direction) {
         if (node.getrChild() != null && !node.getrChild().getColor()
                 && node.getlChild() == null || (
@@ -381,9 +382,9 @@ public class RedBlackTree {
         int n = random.nextInt(10);
         if (node != null) {
             if (n > 5 && node.getrChild() != null) {
-                return node.getrChild();
+                return getRandNode( node.getrChild());
             } else if (n > 0 && node.getlChild() != null) {
-                return node.getlChild();
+                return getRandNode(node.getlChild());
             } else {
                 return node;
             }

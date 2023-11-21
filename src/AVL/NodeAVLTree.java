@@ -38,9 +38,9 @@ public class NodeAVLTree {
         this.parent = parent;
         if (parent!=null) {
             if (parent.inf <this.inf) {
-                parent.rChild  =(this);
+                parent.rChild  =this;
             } else {
-                parent.lChild =(this);
+                parent.lChild =this;
             }
         }
 
